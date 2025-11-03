@@ -19,6 +19,10 @@ const Login = () => {
     setUser(data.data)
   }
 
+  const onHomeNavigate = ()=>{
+    navigate('/home')
+  }
+
   const onSignInSubmit = async(e)=>{
     e.preventDefault()
     const url = "http://localhost:5000/api/signIn"
@@ -32,7 +36,7 @@ const Login = () => {
       setPassword("")
       onLoginResponse(response)
       setLoading(false)
-      navigate('/')
+      onHomeNavigate()
       return response.data
 
     }catch(error){

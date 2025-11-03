@@ -76,7 +76,7 @@ const Register = () => {
             value={email}
             placeholder="email"
             required
-            className="border border-slate-300 px-2 rounded-sm outline-none bg-slate-200 w-3/4"
+            className="border border-slate-300 px-2 rounded-sm outline-none bg-slate-200 w-3/4 mr-10"
             onChange={(e)=>setEmail(e.target.value)}
           />
         </div>

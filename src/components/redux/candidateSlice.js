@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const baseURL ="http://localhost:5000/api/candidates"
+const baseURL ="https://candidates-api-yrca.onrender.com/api/candidates"
 
 export const fetchCandidates = createAsyncThunk('candidates/fetchCandidates', async(thunkAPI)=>{
 

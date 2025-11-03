@@ -19,7 +19,7 @@ const Landing = () => {
 
 const handleSubmit = async(e) => {
   e.preventDefault();
-  const url = "http://localhost:5000/api/candidates"
+  const url = "https://candidates-api-yrca.onrender.com/api/candidates"
   try{
     const response = await axios.post(url, {
       name,

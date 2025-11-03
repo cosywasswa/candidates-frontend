@@ -24,7 +24,7 @@ const Register = () => {
 
   const onRegistrationSubmit = async(e)=>{
     e.preventDefault()
-    const url = "http://localhost:5000/api/users"
+    const url = "https://candidates-api-yrca.onrender.com/api/users"
     try{
       setLoading(true)
         const response = await axios.post(url, {

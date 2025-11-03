@@ -6,12 +6,10 @@ const candidateDetails = () => {
     const [candidate, setCandidate] = useState({})
     const [description, setDescription] = useState("")
   const { candidateId } = useParams();
-  console.log('id', candidateId)
   const baseURL = "https://candidates-api-yrca.onrender.com/api/candidates";
   const fetchCandidate = async (id) => {
     try{
 const response = await axios.get(`${baseURL}/${candidateId}`);
-console.log('res', response.data)
 setCandidate(response.data.data)
     return response.data;
     }catch(error){

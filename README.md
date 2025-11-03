@@ -57,11 +57,9 @@ a Full-Stack Web Application that Desishub can use to register new candidates, a
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- This is 'candidates-app'<a href="https://cartpairs.com/">Live Demo Link</a>
+- This is 'candidates-app'<a href="https://candidates-frontend.onrender.com/">Live Demo Link</a>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-All 2 Authors have been contributing to this project from start to finish
 
 ## 💻 Getting Started <a name="getting-started"></a>
 

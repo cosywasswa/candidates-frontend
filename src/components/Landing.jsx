@@ -1,6 +1,7 @@
 import {useState} from "react";
 import axios from "axios";
 import { toast } from 'sonner';
+import { NavLink } from "react-router-dom";
 
 const Landing = () => {
   const [skills, setSkills] =useState([])
@@ -52,7 +53,7 @@ return response.data;
               <h3>DesisHub</h3>
             </li>
             <li>
-              <p>Admin Login</p>
+              <NavLink to="/login">Admin Login</NavLink>
             </li>
           </ul>
         </nav>

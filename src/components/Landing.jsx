@@ -74,7 +74,7 @@ const Landing = () => {
         >
           <p className="text-xl font-semibold">Personal Information</p>
           <div className="flex gap-2 login-div text-lg">
-            <label htmlFor="name" className="w-1/4">
+            <label htmlFor="name" className="w-20">
               Name
             </label>
             <input
@@ -87,7 +87,7 @@ const Landing = () => {
             />
           </div>
           <div className="flex gap-2 login-div text-lg">
-            <label htmlFor="email" className="w-1/4">
+            <label htmlFor="email" className="w-20">
               Email
             </label>
             <input
@@ -100,7 +100,7 @@ const Landing = () => {
             />
           </div>
           <div className="flex gap-2 login-div text-lg">
-            <label htmlFor="contact" className="w-1/4">
+            <label htmlFor="contact" className="w-20">
               Contact
             </label>
             <input

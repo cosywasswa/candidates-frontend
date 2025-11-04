@@ -3,4 +3,8 @@ html {
   box-sizing: border-box
 }
 
+body {
+ font-family: "Jost", sans-serif;
+}
+
 @import "tailwindcss";

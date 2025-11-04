@@ -6,7 +6,9 @@ import { fetchCandidates } from "./redux/candidateSlice";
 
 const Home = () => {
   const [searchTier, setSearchTier] = useState("");
-  const { candidates } = useSelector((store) => store.candidatesData);
+  const { candidates, isLoading } = useSelector(
+    (store) => store.candidatesData
+  );
   const { user } = useUser();
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,9 +20,33 @@ const Home = () => {
   const filteredCandidates = candidatesArr.filter((candidate) =>
     candidate.tier.toString().includes(searchTier)
   );
+  const name = user?.data?.fullName;
+  const parts = name?.trim().split(" ");
+  const userName = parts[0];
+  const message = `Hello,  ${userName}`;
+
+  if (isLoading) {
+    return (
+      <div className="bg-slate-200 w-screen h-screen flex justify-center items-center">
+        <h2 className="text-2xl">Loading data ...</h2>
+      </div>
+    );
+  }
 
   return (
-    <main className="bg-slate-200 w-screen min-h-screen flex flex-col">
+    <main className="bg-slate-200 w-screen min-h-screen flex flex-col pb-10">
+      <header className="w-screen">
+        <nav className=" bg-black h-12">
+          <ul className="flex w-screen px-10 h-12 items-center justify-between text-white">
+            <li>
+              <h3>DesisHub</h3>
+            </li>
+            <li>
+              <h3>{message}</h3>
+            </li>
+          </ul>
+        </nav>
+      </header>
       <h1 className="text-lg md:text-4xl text-center pt-10">
         Candidate Categorization Platform
       </h1>

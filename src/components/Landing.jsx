@@ -1,48 +1,51 @@
-import {useState} from "react";
+import { useState } from "react";
 import axios from "axios";
-import { toast } from 'sonner';
+import { toast } from "sonner";
 import { NavLink } from "react-router-dom";
 
 const Landing = () => {
-  const [skills, setSkills] =useState([])
-  const [name, setName] = useState("")
-  const [email, SetEmail] = useState("")
-  const [contact, setContact] = useState("")
+  const [skills, setSkills] = useState([]);
+  const [name, setName] = useState("");
+  const [email, SetEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSkillChange = (skill) => {
-  setSkills((prev) =>
-    prev.includes(skill)
-      ? prev.filter((item) => item !== skill)
-      : [...prev, skill]
-  );
-};
+    setSkills((prev) =>
+      prev.includes(skill)
+        ? prev.filter((item) => item !== skill)
+        : [...prev, skill]
+    );
+  };
 
-const handleSubmit = async(e) => {
-  e.preventDefault();
-  const url = "https://candidates-api-yrca.onrender.com/api/candidates"
-  try{
-    const response = await axios.post(url, {
-      name,
-      email,
-      contact,
-      skills
-    })
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const url = "https://candidates-api-yrca.onrender.com/api/candidates";
+    setLoading(true);
+    try {
+      const response = await axios.post(url, {
+        name,
+        email,
+        contact,
+        skills,
+      });
 
-    if(!response){
-      toast.error("Error while submiting Info")
+      if (!response) {
+        toast.error("Error while submiting Info");
+      }
+      setLoading(false);
+
+      toast.success("Registered successfuly");
+      setName("");
+      setContact("");
+      SetEmail("");
+      setSkills([]);
+      return response.data;
+    } catch (error) {
+      toast.error("Failed to register", error?.message);
+      return error?.message;
     }
-
-    toast.success("Registered successfuly")
-    setName("")
-    setContact("")
-    SetEmail("")
-    setSkills([])
-return response.data;
-
-  }catch(error){
-    return error?.message
-  }
-};
+  };
 
   return (
     <main className="bg-slate-200 w-screen h-full py-2">
@@ -59,9 +62,16 @@ return response.data;
         </nav>
       </header>
       <section className="w-screen">
-        <h1 className="pt-10 lg:text-4xl text-center">Candidate Registration System</h1>
-        <p className="pt-2 text-2xl text-center">Please Fill below sections to register</p>
-        <form className="flex flex-col gap-5 pt-5 w-1/2 mx-auto" onSubmit={handleSubmit}>
+        <h1 className="pt-10 lg:text-4xl text-center">
+          Candidate Registration System
+        </h1>
+        <p className="pt-2 text-2xl text-center">
+          Please Fill below sections to register
+        </p>
+        <form
+          className="flex flex-col gap-5 pt-5 w-1/2 mx-auto"
+          onSubmit={handleSubmit}
+        >
           <p className="text-xl font-semibold">Personal Information</p>
           <div className="flex gap-2 login-div text-lg">
             <label htmlFor="name" className="w-1/4">
@@ -73,7 +83,7 @@ return response.data;
               className="bg-white px-2 rounded-sm outline-none w-3/4"
               required
               value={name}
-              onChange={(e)=>setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div className="flex gap-2 login-div text-lg">
@@ -86,7 +96,7 @@ return response.data;
               className="bg-white px-2 rounded-sm outline-none w-3/4"
               required
               value={email}
-              onChange={(e)=>SetEmail(e.target.value)}
+              onChange={(e) => SetEmail(e.target.value)}
             />
           </div>
           <div className="flex gap-2 login-div text-lg">
@@ -99,7 +109,7 @@ return response.data;
               className="bg-white px-2 rounded-sm outline-none w-3/4"
               required
               value={contact}
-              onChange={(e)=>setContact(e.target.value)}
+              onChange={(e) => setContact(e.target.value)}
             />
           </div>
           <p className="text-xl font-semibold">Skills Assesment</p>
@@ -119,15 +129,23 @@ return response.data;
               "Proficient in Next.js, Express, Laravel and Hono",
               "Knows Golang and can build simple APIs with Go",
             ].map((item, index) => (
-              <label key={index} className="flex items-start gap-3">
-                <input type="checkbox" checked={skills.includes(item)} onChange={()=>handleSkillChange(item)} className="mt-1" />
+              <label key={index} className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  checked={skills.includes(item)}
+                  onChange={() => handleSkillChange(item)}
+                  className="mt-1"
+                />
                 <span className="text-lg">{item}</span>
               </label>
             ))}
           </section>
           <div className="pb-10">
-            <button className="bg-gray-500 text-white px-4 py-1 text-lg rounded-md" type="submit">
-              Register
+            <button
+              className="bg-gray-500 text-white px-4 py-1 text-lg rounded-md"
+              type="submit"
+            >
+              {loading ? "Registering" : "Register"}
             </button>
           </div>
         </form>

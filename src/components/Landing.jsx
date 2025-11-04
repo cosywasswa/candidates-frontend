@@ -80,7 +80,7 @@ const Landing = () => {
             <input
               type="text"
               placeholder="name"
-              className="bg-white px-2 rounded-sm outline-none w-3/4"
+              className="bg-white px-2 rounded-sm outline-none w-1/2"
               required
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -93,7 +93,7 @@ const Landing = () => {
             <input
               type="text"
               placeholder="email"
-              className="bg-white px-2 rounded-sm outline-none w-3/4"
+              className="bg-white px-2 rounded-sm outline-none w-1/2"
               required
               value={email}
               onChange={(e) => SetEmail(e.target.value)}
@@ -106,7 +106,7 @@ const Landing = () => {
             <input
               type="text"
               placeholder="contact"
-              className="bg-white px-2 rounded-sm outline-none w-3/4"
+              className="bg-white px-2 rounded-sm outline-none w-1/2"
               required
               value={contact}
               onChange={(e) => setContact(e.target.value)}

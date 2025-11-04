@@ -47,14 +47,14 @@ const Home = () => {
           </ul>
         </nav>
       </header>
-      <h1 className="text-lg md:text-4xl text-center pt-10">
+      <h1 className="text-2xl md:text-4xl text-center pt-10">
         Candidate Categorization Platform
       </h1>
       <div className="pt-5">
         <input
           type="text"
           placeholder="search by tier"
-          className="outline-none bg-white rounded-2xl px-2 relative left-44 top-5 w-60"
+          className="outline-none bg-white rounded-2xl px-2 relative left-14 md:left-44 top-5 w-60"
           value={searchTier}
           onChange={(e) => setSearchTier(e.target.value)}
         />

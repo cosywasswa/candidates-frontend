@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import axios from "axios";
+import { useUser } from "./authentication/context";
 
 const candidateDetails = () => {
   const [candidate, setCandidate] = useState({});
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const { candidateId } = useParams();
+  const {user} = useUser()
+  const token = user?.token;
   const baseURL = "https://candidates-api-yrca.onrender.com/api/candidates";
 
   const fetchCandidate = async (candidateId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`${baseURL}/${candidateId}`);
+      const response = await axios.get(`${baseURL}/${candidateId}`, {
+        headers: {
+        Authorization: token,
+        'Content-Type': 'application/json'
+        }
+      });
       setCandidate(response.data.data);
       setLoading(false);
       return response.data;

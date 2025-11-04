@@ -1,3 +1,4 @@
+<a name="demo">https://candidates-frontend.onrender.com/</a>
 <a name="readme-top"></a>
 
 <div align="center">
@@ -25,9 +26,8 @@
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [📝 License ](#-license-)
 
-# cartpairs <a name="about-project"></a>
+# candidates <a name="about-project"></a>
 
 a Full-Stack Web Application that Desishub can use to register new candidates, assess their self-declared skills, and automatically categorize them into one of the six defined skill tiers (Tier 0 to Tier 5).
 #### Link to [Backend](https://github.com/cosywasswa/candidates-backend.git)
@@ -43,6 +43,8 @@ a Full-Stack Web Application that Desishub can use to register new candidates, a
     <li><a href="https://redux.js.org/">Redux</a></li>
     <li><a href="#">CSS</a></li>
      <li><a href="#">Tailwind CSS</a></li>
+     <li><a href="#">Vite</a></li>
+     <li><a href="#">Sonner</a></li>
   </ul>
 </details>
 
@@ -74,6 +76,7 @@ In order to run this project you need:
 - Create a local directory that you want to clone the repository.
 - Open the command prompt in the created directory.
 - On the terminal run this command git clone https://github.com/cosywasswa/candidates-frontend.git
+-run npm install to install dependencies
 
 ### Setup
 
@@ -107,9 +110,3 @@ Collaborators.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-## 📝 License <a name="license"></a>
-
-This project is [MIT](./LICENSE) licensed.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>

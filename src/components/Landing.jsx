@@ -56,20 +56,20 @@ const Landing = () => {
               <h3>DesisHub</h3>
             </li>
             <li>
-              <NavLink to="/login">Admin Login</NavLink>
+              <NavLink to="/login">Login</NavLink>
             </li>
           </ul>
         </nav>
       </header>
       <section className="w-screen">
-        <h1 className="pt-10 lg:text-4xl text-center">
+        <h1 className="pt-10 text-2xl lg:text-4xl text-center font-bold">
           Candidate Registration System
         </h1>
-        <p className="pt-2 text-2xl text-center">
+        <p className="pt-2 text-xl md:text-2xl text-center">
           Please Fill below sections to register
         </p>
         <form
-          className="flex flex-col gap-5 pt-5 w-1/2 mx-auto"
+          className="flex flex-col gap-5 pt-5 w-3/4 mx-auto"
           onSubmit={handleSubmit}
         >
           <p className="text-xl font-semibold">Personal Information</p>

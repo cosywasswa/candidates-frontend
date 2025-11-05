@@ -102,7 +102,7 @@ const Home = () => {
     responsive: true,
     plugins: {
       legend: { position: "top" },
-      title: { display: true, text: "Performance Progress" },
+      title: { display: true, text: "Tier Distribution" },
     },
   };
 
